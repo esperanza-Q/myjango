@@ -1,0 +1,34 @@
+{% load static %}
+{% block content %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>회원가입</title>
+    </head>
+
+    <body>
+        <div class="modal"> <!--회원가입 모달창-->
+            <div class="modal_body"> <!--회원가입 모달창 내용-->
+                <div class="container">
+                    <form method="post" action = "{% url 'accounts:signup' %}" class="signupForm" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h1>회원가입</h1> <br><br>
+                        <h3> 프로필 사진 </h3>
+                        <input type="file" name="userImage" accept="image/*" required>
+                        <h3> 닉네임 </h3>
+                        <input type="text" name="nickname" placeholder="name" required>
+                        <h3> 아이디 </h3>
+                        <input type="text" name="username" placeholder="id" required>
+                        <h3> 비밀번호 </h3>
+                        <input type="password" name="password1" placeholder="password" required>
+                        <h3> 비밀번호 확인 </h3>
+                        <input type="password" name="password2" placeholder="password" required>
+                        <input type="submit" value="회원가입">
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>
+{% endblock %}

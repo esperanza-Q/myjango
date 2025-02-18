@@ -1,0 +1,49 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+
+<body>
+    <h1>홈</h1> <br><br>
+    
+    <!-- 로그인 후 -->
+    {% if user.is_authenticated %}
+    <div class="user-info-section">
+        <div class="box1">
+            {% csrf_token %} 
+            <h2>PROFILE</h2>
+            {% if profile %}
+                <img src="{{ profile.userImage.url }}" alt="user profile image" style="max-width: 200px; max-height: 200px;">
+            {% endif %}
+            {% if profile %}
+                <p id="user-nick">환영합니다, {{ profile.nickname }} 님!</p>
+            {% endif %}          
+            <a href="{% url 'accounts:logout' %}"><button>로그아웃</button></a>
+            <a href="{% url 'accounts:userDelete' %}"><button>회원탈퇴</button></a>
+        </div>
+
+    <!--로그인전-->
+    {% else %}
+    <div class="user-info-section">
+        <div class="box1">
+            {% csrf_token %} 
+            <h2>LOGIN</h2>
+            <br>
+            <br>
+            <a href="{% url 'accounts:login' %}"><button>로그인</button></a>
+            <a href="{% url 'accounts:signup' %}"><button>회원가입</button></a>
+            <br>
+        </div>
+
+        {% endif %}
+</body>
+</html>
+
+{% endblock %}
