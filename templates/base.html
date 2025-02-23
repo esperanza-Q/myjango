@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /*--LOGO START--*/
+        .logo {
+            margin-left:80px;
+            position: relative;
+            width: 107px;
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        
+        .circle {
+            background-color: white;
+            border: 2px solid #7a3b2e;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .bottom{
+            left: 10px;
+            width: 70px;
+            height: 70px;
+        }
+        .top {
+            top: 12px;
+            left:22px;
+            width: 49px;
+            height: 50px;
+            border:0px;
+        }
+        .outline{
+            top: 10px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+        }
+        
+        
+
+        .eyes {
+            position: absolute;
+            width:23px;
+            height:10px;
+            
+            transform: rotate(90deg);
+            top:16px;
+            left:30px;
+            
+    
+        }
+        .eyeball{
+            width: 17px;
+            height: 14px;
+            border: 1px solid #7a3b2e;
+            border-radius: 50%;
+            margin-top:3px;
+            
+        }
+        .eye {
+            
+            width: 13px;
+            height: 13px;
+            background-color: #7a3b2e;
+            border-radius: 50%;
+        }
+        .bottom {
+            bottom: 0;
+        }
+        .text {
+            position: absolute;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #7a3b2e;
+        }
+        .left-text {
+            left: -20px;
+            top: 35px;
+            transform: rotate(-90deg);
+        }
+        .right-text {
+            right: -20px;
+            bottom: 28px;
+            transform: rotate(-90deg);
+        }
+
+        /*--LOGO END--*/
+
+        
+
+        /*--body--*/
+        body {
+            width: 1440px;
+            height: 2265px;
+            background-color: #F4D793;
+            font-family: Arial, sans-serif;
+            text-align: center;
+
+        
+        }
+
+        .mainBody{
+            
+            width: 1290px;
+            height: 2132px;
+            background-color: white;
+            border-radius:35px;
+            
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -645px;
+        }
+        
+        /*--HEADER START--*/
+
+        .topHeader {
+            margin-top:15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            
+        }
+        
+        .searchBar{
+            
+            width:730px;
+            height:80px;
+            
+            border: 10px solid #7a3b2e;
+            border-radius: 100px;
+        }
+        
+        .searchInput{
+            margin-top:15px;
+            border: 1px #7C3434;
+            border-radius:100px;
+            width:600px;
+            outline:none;
+            height:50px;
+            font-size:25px;
+            text-align:center;
+
+        }
+        
+
+        nav {
+            background-color: #FFF;
+            padding: 10px;
+        }
+        .headerLogin{
+            margin-right:50px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        }
+        .loginSignup{
+            width: 163px;
+            height: 50px;
+            background-color: #7C3434;
+            color: #FFF6DA;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size:23px;
+            transition: all .5s ease;
+        }
+
+        .loginSignup:hover{
+            color:white;
+            background-color: #F4D793;
+        }
+
+        hr{
+            border: 3px solid #976146;
+        }
+
+        .nav {
+            background-color: white;
+            color:#7C3434;
+            border: none;
+            padding: 10px 20px;
+            margin: 0px 30px 0px 40px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-size:30px;
+            width:200px;
+
+            transition: all .5s ease;
+            
+        }
+        
+        .nav:hover{
+            background-color: #F4D793;
+            color:white;
+        }
+
+        /*--HEADER END--*/
+
+
+        .recipe-section {
+            margin: 20px;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .sectionTitle{
+            position:absolute;
+            margin: 0px 438px 10px 438px;
+            width:320px;
+            height:70px;
+            background-color: #FFF;
+            color:#7C3434;
+            font-size:30px;
+        }
+
+        .recipe-container {
+        
+            margin: 60px 60px 0px 60px;
+            justify-content: center;
+            gap: 20px;
+            background-color: #FFF;
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='18' ry='18' stroke='%237C3434FF' stroke-width='8' stroke-dasharray='10%2c 30' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");
+            border-radius: 18px;
+            
+            width: 1068px;
+            height:523px;
+            display:flex;
+            
+        }
+        .recipe-card {
+            margin: 80px 0px 50px 0px;
+            background-color: #FFF;
+            padding: 5px;
+            
+            border-radius: 10px;
+            font-size: 25px;
+            width: 280px;
+        }
+        .recipe-card img {
+            width: 250px;
+            height: 250px;
+            border-radius: 0px;
+        }
+
+        .recipe-card img::before {
+            content: 'fall back';
+            
+            
+            line-height: 200px;
+            background-color: #7C3434;
+            
+            text-align: center;
+            
+            display: block;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .recipe-card button{
+            padding: 40px 0px 15px 0px;
+            font-size:28px;
+            color:#7C3434;
+            text-decoration: underline;
+            background-color: white;
+            border:white;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mainBody">
+        <header>
+                <div class="topHeader">
+                <div class="logo">
+                    
+                    <div class="snowman">
+                        <div class="circle outline"></div>
+                        <div class="circle bottom"></div>
+                        <div class="circle top">
+                            
+                            <div class="eyes">
+                                <div class="eyeball">
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="eyeball">
+                                    <div class="eye"></div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        
+                        <span class="text left-text">my</span>
+                        <span class="text right-text">jango</span>
+                    </div>
+                </div>
+
+                <div class="searchBar">
+                    <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
+                </div>
+
+                <div class="headerLogin">
+                    <button class="loginSignup">로그인</button>
+                    <button class="loginSignup">회원가입</button>
+                </div>
+            </div>
+
+            <hr>
+            <nav>
+                <button class="nav">CREATE</button>
+                <button class="nav">SPEEDY</button>
+                <button class="nav">ASK</button>
+                <button class="nav">MY</button>
+            </nav>
+            <hr>
+
+        </header>
+        <main>
+            
+        </main>
+    </div>
+</body>
+</html>
