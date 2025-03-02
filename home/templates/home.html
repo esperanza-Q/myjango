@@ -1,100 +1,30 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Page</title>
-    <link rel="stylesheet" href="styles.css">
+    
     <style>
 
-        /*--LOGO START--*/
-        .logo {
-            margin-left:80px;
-            position: relative;
-            width: 107px;
-            height: 110px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            
-        }
-        
-        .circle {
-            background-color: white;
-            border: 2px solid #7a3b2e;
-            border-radius: 50%;
-            position: absolute;
+        @font-face {
+            font-family: 'HakgyoansimNadeuriTTF-L';
+            src: url("../../static/font/Hakgyoansim_Nadeuri_TTF_L.ttf") format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
-        .bottom{
-            left: 10px;
-            width: 70px;
-            height: 70px;
-        }
-        .top {
-            top: 12px;
-            left:22px;
-            width: 49px;
-            height: 50px;
-            border:0px;
-        }
-        .outline{
-            top: 10px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-        }
-        
         
 
-        .eyes {
-            position: absolute;
-            width:23px;
-            height:10px;
-            
-            transform: rotate(90deg);
-            top:16px;
-            left:30px;
-            
-    
-        }
-        .eyeball{
-            width: 17px;
-            height: 14px;
-            border: 1px solid #7a3b2e;
-            border-radius: 50%;
-            margin-top:3px;
-            
-        }
-        .eye {
-            
-            width: 13px;
-            height: 13px;
-            background-color: #7a3b2e;
-            border-radius: 50%;
-        }
-        .bottom {
-            bottom: 0;
-        }
-        .text {
-            position: absolute;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-            color: #7a3b2e;
-        }
-        .left-text {
-            left: -20px;
-            top: 35px;
-            transform: rotate(-90deg);
-        }
-        .right-text {
-            right: -20px;
-            bottom: 28px;
-            transform: rotate(-90deg);
+        *{
+            font-family:"HakgyoansimNadeuriTTF-L";
         }
 
-        /*--LOGO END--*/
+
+        
 
         
 
@@ -103,7 +33,7 @@
             width: 1440px;
             height: 2265px;
             background-color: #F4D793;
-            font-family: Arial, sans-serif;
+            
             text-align: center;
 
         
@@ -142,6 +72,10 @@
             border: 10px solid #7a3b2e;
             border-radius: 100px;
         }
+
+        .searchBar img{
+            margin-bottom:-5px;
+        }
         
         .searchInput{
             margin-top:15px;
@@ -150,7 +84,7 @@
             width:600px;
             outline:none;
             height:50px;
-            font-size:25px;
+            font-size:40px;
             text-align:center;
 
         }
@@ -176,7 +110,8 @@
             margin: 5px;
             cursor: pointer;
             border-radius: 20px;
-            font-size:23px;
+            font-weight:bold;
+            font-size:30px;
             transition: all .5s ease;
         }
 
@@ -193,12 +128,14 @@
             background-color: white;
             color:#7C3434;
             border: none;
-            padding: 10px 20px;
+            padding: 5px 20px;
             margin: 0px 30px 0px 40px;
             cursor: pointer;
             border-radius: 50px;
-            font-size:30px;
-            width:200px;
+            font-weight:bold;
+            font-size:55px;
+            width:220px;
+            
 
             transition: all .5s ease;
             
@@ -220,13 +157,19 @@
         }
         
         .sectionTitle{
-            position:absolute;
-            margin: 0px 438px 10px 438px;
-            width:320px;
-            height:70px;
+            position: absolute;
+            margin: 0px 355px 10px 355px;
+            width: 500px;
+            height: 120px;
             background-color: #FFF;
-            color:#7C3434;
-            font-size:30px;
+            color:#7C3434; 
+            font-size:70px;
+            text-align:center;
+            
+        }
+
+        .sectionTitle h2{
+            margin:0px 0px 0px 0px;
         }
 
         .recipe-container {
@@ -244,12 +187,12 @@
             
         }
         .recipe-card {
-            margin: 80px 0px 50px 0px;
+            margin: 60px 0px 50px 0px;
             background-color: #FFF;
             padding: 5px;
             
             border-radius: 10px;
-            font-size: 25px;
+            font-size: 40px;
             width: 280px;
         }
         .recipe-card img {
@@ -275,7 +218,7 @@
 
         .recipe-card button{
             padding: 40px 0px 15px 0px;
-            font-size:28px;
+            font-size:50px;
             color:#7C3434;
             text-decoration: underline;
             background-color: white;
@@ -284,35 +227,16 @@
         }
 
     </style>
+
 </head>
 <body>
     <div class="mainBody">
         <header>
                 <div class="topHeader">
-                <div class="logo">
-                    
-                    <div class="snowman">
-                        <div class="circle outline"></div>
-                        <div class="circle bottom"></div>
-                        <div class="circle top">
-                            
-                            <div class="eyes">
-                                <div class="eyeball">
-                                    <div class="eye"></div>
-                                </div>
-                                <div class="eyeball">
-                                    <div class="eye"></div>
-                                </div>
-                            </div>
-                        
-                        </div>
-                        
-                        <span class="text left-text">my</span>
-                        <span class="text right-text">jango</span>
-                    </div>
-                </div>
+                <img src="../../static/img/logo.svg">
 
                 <div class="searchBar">
+                    <img src="../../static/img/search.svg">
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
 
@@ -336,17 +260,17 @@
             <section class="recipe-section">
                 <div class=sectionTitle><h2>hot recipe</h2></div>
                 <div class="recipe-container">
-                    <div class="recipe-card"> <img src="temp.jpg" alt="Recipe 1"> 
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 1"> 
                         <button>레시피 1</button> 
                         <br>
                         123♡
                     </div>
-                    <div class="recipe-card"> <img src="temp.jpg" alt="Recipe 2"> 
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 2"> 
                         <button>레시피 2</button> 
                         <br>
                         123♡
                     </div>
-                    <div class="recipe-card"> <img src="temp.jpg" alt="Recipe 3"> 
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 3"> 
                         <button>레시피 3</button> 
                         <br>
                         123♡
@@ -356,17 +280,17 @@
             <section class="recipe-section">
                 <div class=sectionTitle><h2>daily recipe</h2></div>
                 <div class="recipe-container">
-                    <div class="recipe-card"> <img src="temp.jpg" alt="Recipe 4"> 
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 4"> 
                         <button>레시피 1</button> 
                         <br>
                         123♡
                     </div>
-                    <div class="recipe-card"> <img src="temp.jpg" alt="Recipe 5"> 
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 5"> 
                         <button>레시피 2</button> 
                         <br>
                         123♡
                     </div>
-                    <div class="recipe-card"> <img src="temp.jpg" alt="Recipe 6"> 
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 6"> 
                         <button>레시피 3</button> 
                         <br>
                         123♡
