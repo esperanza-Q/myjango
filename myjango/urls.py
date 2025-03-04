@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')), #accounts > urls.py에서 관리할 것것
     path('myjango/', include('home.urls')),
-]
+    path('recipe/', include('recipe.urls')),
+    ]
 
 
 # DEBUG 설정에 따라 static 파일 처리 (중복 제거)

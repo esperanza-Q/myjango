@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from accounts.models import Profile
 
-def test_home(request):
+def home(request):
     profile = None
     if request.user.is_authenticated:
         # 현재 로그인된 사용자의 프로필 가져오기

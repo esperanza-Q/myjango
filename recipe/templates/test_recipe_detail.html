@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recipe_detail</title>
+</head>
+
+<body>
+
+    <p>{{recipe_post.recipe_title}}</p>
+    <p>{{recipe_post.recipe_writer}}</p>
+    <p>{{recipe_post.recipe_content}}</p>
+    <img src="{{recipe_image.recipe_image.url}}" style="width: 300px;height:300px;">
+    
+    <form action="{% url 'recipe:recipe_delete' recipe_post.id %}">
+        {% csrf_token %}
+        <input type="submit" value="삭제">
+    </form>
+
+    <br>
+
+    {% if recipe_post.recipe_writer == request.user %}
+    <a href="{% url 'recipe:recipe_update' recipe_post.id %}"><button class="btn">수정</button></a>
+    {% else %}
+    <p>레시피를 찾을 수 없습니다.</p>
+    {% endif %}
+</body>
+</html>

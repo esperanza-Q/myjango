@@ -1,0 +1,44 @@
+<section id="updatepost1" class="recipe-form">
+    <h2>글 수정</h2>
+    <br>
+    <!-- <form method="POST" enctype="multipart/form-data" action="{% url 'recipe:recipe_update' recipe_post.id %}">
+        <div class="form-group">
+        {% csrf_token %}
+        {{ recipe_form.as_p }}
+        </div> -->
+
+        <div class="recipe-form">
+            <form method="POST" enctype="multipart/form-data" action="{% url 'recipe:recipe_update' recipe_post.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+
+                    <!-- {{ recipe_form.as_p }} -->
+                    <div class="form-group">
+                        <label for="recipe-title">레시피 이름</label> <br>
+                        {{ recipe_form.recipe_title }}
+                    </div> <br><br><br>
+
+                    {% if recipe_image %}
+                    <img src="{{ recipe_image.recipe_image.url }}" style="width: 300px; height: 300px;">
+                    <br><br>
+                    <input type="file" name="recipe_image" id="id_image">
+                    {% else %}
+                        <p>이미지가 없습니다.</p>
+                    {% endif %} <br><br><br>
+
+                    <div class="form-group">
+                        <label for="recipe-content">만드는 방법</label><br>
+                        {{ recipe_form.recipe_content }}
+                    </div> <br>
+
+
+                </div> <br>
+                
+                <div class="form-group">
+                    <button type="submit">완성!</button>
+                </div>
+            </form>
+        </div>
+
+    </form>
+</section>

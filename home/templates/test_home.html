@@ -11,7 +11,7 @@
 
 
 <body>
-    <h1>홈</h1> <br><br>
+    <h1>홈</h1> <br>
     
     <!-- 로그인 후 -->
     {% if user.is_authenticated %}
@@ -25,6 +25,7 @@
             {% if profile %}
                 <p id="user-nick">환영합니다, {{ profile.nickname }} 님!</p>
             {% endif %}          
+            <a href="{% url 'recipe:recipe_write' %}">레시피 작성하기</a> <br><br>
             <a href="{% url 'accounts:logout' %}"><button>로그아웃</button></a>
             <a href="{% url 'accounts:userDelete' %}"><button>회원탈퇴</button></a>
         </div>
