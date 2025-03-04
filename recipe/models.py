@@ -10,6 +10,8 @@ class RecipeWrite(models.Model):
     recipe_writer = models.ForeignKey(User, on_delete=models.CASCADE)
     recipe_title = models.CharField(max_length=400)
     recipe_content = models.TextField()
+    # recipe_ingre = models.TextField()
+    # recipe_per = models.IntegerField()  임의로 정한 거라 마음껏 바꾸셔도 됩니다.
     
     #디자인한 대로 틀은 만들어두자 (재료, 몇 인분)
     
