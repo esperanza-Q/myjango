@@ -1,1 +1,303 @@
-홈
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Page</title>
+    
+    <style>
+
+        @font-face {
+            font-family: 'HakgyoansimNadeuriTTF-L';
+            src: url("../../static/font/Hakgyoansim_Nadeuri_TTF_L.ttf") format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        
+
+        *{
+            font-family:"HakgyoansimNadeuriTTF-L";
+        }
+
+
+        
+
+        
+
+        /*--body--*/
+        body {
+            width: 1440px;
+            height: 2265px;
+            background-color: #F4D793;
+            
+            text-align: center;
+
+        
+        }
+
+        .mainBody{
+            
+            width: 1290px;
+            height: 2132px;
+            background-color: white;
+            border-radius:35px;
+            
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -645px;
+        }
+        
+        /*--HEADER START--*/
+
+        .topHeader {
+            margin-top:15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            
+        }
+        
+        .searchBar{
+            
+            width:730px;
+            height:80px;
+            
+            border: 10px solid #7a3b2e;
+            border-radius: 100px;
+        }
+
+        .searchBar img{
+            margin-bottom:-5px;
+        }
+        
+        .searchInput{
+            margin-top:15px;
+            border: 1px #7C3434;
+            border-radius:100px;
+            width:600px;
+            outline:none;
+            height:50px;
+            font-size:40px;
+            text-align:center;
+
+        }
+        
+
+        nav {
+            background-color: #FFF;
+            padding: 10px;
+        }
+        .headerLogin{
+            margin-right:50px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        }
+        .loginSignup{
+            width: 163px;
+            height: 50px;
+            background-color: #7C3434;
+            color: #FFF6DA;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight:bold;
+            font-size:30px;
+            transition: all .5s ease;
+        }
+
+        .loginSignup:hover{
+            color:white;
+            background-color: #F4D793;
+        }
+
+        hr{
+            border: 3px solid #976146;
+        }
+
+        .nav {
+            background-color: white;
+            color:#7C3434;
+            border: none;
+            padding: 5px 20px;
+            margin: 0px 30px 0px 40px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight:bold;
+            font-size:55px;
+            width:220px;
+            
+
+            transition: all .5s ease;
+            
+        }
+        
+        .nav:hover{
+            background-color: #F4D793;
+            color:white;
+        }
+
+        /*--HEADER END--*/
+
+
+        .recipe-section {
+            margin: 20px;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .sectionTitle{
+            position: absolute;
+            margin: 0px 355px 10px 355px;
+            width: 500px;
+            height: 120px;
+            background-color: #FFF;
+            color:#7C3434; 
+            font-size:70px;
+            text-align:center;
+            
+        }
+
+        .sectionTitle h2{
+            margin:0px 0px 0px 0px;
+        }
+
+        .recipe-container {
+        
+            margin: 60px 60px 0px 60px;
+            justify-content: center;
+            gap: 20px;
+            background-color: #FFF;
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='18' ry='18' stroke='%237C3434FF' stroke-width='8' stroke-dasharray='10%2c 30' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");
+            border-radius: 18px;
+            
+            width: 1068px;
+            height:523px;
+            display:flex;
+            
+        }
+        .recipe-card {
+            margin: 60px 0px 50px 0px;
+            background-color: #FFF;
+            padding: 5px;
+            
+            border-radius: 10px;
+            font-size: 40px;
+            width: 280px;
+        }
+        .recipe-card img {
+            width: 250px;
+            height: 250px;
+            border-radius: 0px;
+        }
+
+        .recipe-card img::before {
+            content: 'fall back';
+            
+            
+            line-height: 200px;
+            background-color: #7C3434;
+            
+            text-align: center;
+            
+            display: block;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .recipe-card button{
+            padding: 40px 0px 15px 0px;
+            font-size:50px;
+            color:#7C3434;
+            text-decoration: underline;
+            background-color: white;
+            border:white;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="mainBody">
+        <header>
+                <div class="topHeader">
+                <img src="../../static/img/logo.svg">
+
+                <div class="searchBar">
+                    <img src="../../static/img/search.svg">
+                    <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
+                </div>
+
+                <div class="headerLogin">
+                    <button class="loginSignup">로그인</button>
+                    <button class="loginSignup">회원가입</button>
+                </div>
+            </div>
+
+            <hr>
+            <nav>
+                <button class="nav">CREATE</button>
+                <button class="nav">SPEEDY</button>
+                <button class="nav">ASK</button>
+                <button class="nav">MY</button>
+            </nav>
+            <hr>
+
+        </header>
+        <main>
+            <section class="recipe-section">
+                <div class=sectionTitle><h2>hot recipe</h2></div>
+                <div class="recipe-container">
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 1"> 
+                        <button>레시피 1</button> 
+                        <br>
+                        123♡
+                    </div>
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 2"> 
+                        <button>레시피 2</button> 
+                        <br>
+                        123♡
+                    </div>
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 3"> 
+                        <button>레시피 3</button> 
+                        <br>
+                        123♡
+                    </div>
+                </div>
+            </section>
+            <section class="recipe-section">
+                <div class=sectionTitle><h2>daily recipe</h2></div>
+                <div class="recipe-container">
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 4"> 
+                        <button>레시피 1</button> 
+                        <br>
+                        123♡
+                    </div>
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 5"> 
+                        <button>레시피 2</button> 
+                        <br>
+                        123♡
+                    </div>
+                    <div class="recipe-card"> <img src="../static/img/temp.jpg" alt="Recipe 6"> 
+                        <button>레시피 3</button> 
+                        <br>
+                        123♡
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
