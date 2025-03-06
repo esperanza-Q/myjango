@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/recipe_detail.css' %}">
 
 <head>
     <meta charset="UTF-8">
@@ -400,8 +400,34 @@
             top: 10px;
         }
 
+        .pageDivider{
+            border-top: 1px solid #B29170;
+            margin: 80px 40px 80px 40px;
+            width: 1200px;
+            height: 0px;
+            
+        }
         
-        
+        .recipeSteps{
+            text-align: left;
+            color:#7C3434;
+            font-size: 32px;
+        }
+
+        .stepNum{
+            margin: 30px 0px 10px 120px;
+            
+            text-shadow: -1px 0 #7C3434, 0 1px #7C3434, 1px 0 #7C3434, 0 -1px #7C3434;
+            color:#F4D793;
+            font-size:60px;
+            font-weight:bold;
+
+        }
+        .stepInstructions{
+            margin:20px 20px 10px 180px;
+            width: 980px;
+            height:fit-content;
+        }
 
     </style>
 
@@ -500,7 +526,18 @@
                     </div>
                     스크랩
                 </button>
+            </div>
 
+            <div class="pageDivider"> </div>
+
+            <div class="recipeSteps">
+                <div class="stepNum">step 1</div>
+                <br>
+                <div class="stepInstructions">자세한 레시피 설명 1</div>
+                <br>
+                <div class="stepNum">step 2</div>
+                <br>
+                <div class="stepInstructions">자세한 레시피 설명 1</div>
 
             </div>
             
