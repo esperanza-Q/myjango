@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        @font-face {
+            font-family: 'HakgyoansimNadeuriTTF-L';
+            src: url("../../static/font/Hakgyoansim_Nadeuri_TTF_L.ttf") format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        
+
+        *{
+            font-family:"HakgyoansimNadeuriTTF-L";
+        }
+
+
+        
+
+        
+
+        /*--body--*/
+        body {
+            width: 1440px;
+            height: 2265px;
+            background-color: #F4D793;
+            
+            text-align: center;
+
+        
+        }
+
+        .mainBody{
+            
+            width: 1290px;
+            height: 2132px;
+            background-color: white;
+            border-radius:35px;
+            
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -645px;
+        }
+        
+        /*--HEADER START--*/
+
+        .topHeader {
+            margin-top:15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            
+        }
+        
+        .searchBar{
+            
+            width:730px;
+            height:80px;
+            
+            border: 10px solid #7a3b2e;
+            border-radius: 100px;
+        }
+        .searchBar img{
+            margin-bottom:-5px;
+        }
+        
+        .searchInput{
+            margin-top:15px;
+            border: 1px #7C3434;
+            border-radius:100px;
+            width:600px;
+            outline:none;
+            height:50px;
+            font-size:40px;
+            text-align:center;
+
+        }
+        
+
+        nav {
+            background-color: #FFF;
+            padding: 10px;
+        }
+        .headerLogin{
+            margin-right:50px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        }
+        .loginSignup{
+            width: 163px;
+            height: 50px;
+            background-color: #7C3434;
+            color: #FFF6DA;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight:bold;
+            font-size:30px;
+            transition: all .5s ease;
+        }
+
+        .loginSignup:hover{
+            color:white;
+            background-color: #F4D793;
+        }
+
+        hr{
+            border: 3px solid #976146;
+        }
+
+        .nav {
+            background-color: white;
+            color:#7C3434;
+            border: none;
+            padding: 5px 20px;
+            margin: 0px 30px 0px 40px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight:bold;
+            font-size:55px;
+            width:220px;
+            
+
+            transition: all .5s ease;
+            
+        }
+        
+        .nav:hover{
+            background-color: #F4D793;
+            color:white;
+        }
+
+        /*--HEADER END--*/
+        
+
+        .note{
+            margin:120px 185px 0px 185px;
+            width:900px;
+            height:1490px;
+            background-color:#B29170;
+            border: 1px solid #7C3434;
+        }
+        
+        .noteContent{
+            margin: 70px 75px 70px 75px;
+            padding:20px 80px 0px 80px;
+            width:590px;
+            height:1350px;
+            background-color: #FFF;
+            border: 1px solid #7C3434;
+
+            font-size:40px;
+            color:#7C3434;
+        }
+
+        .noteContent button{
+            background-color: #FFF;
+            border:none;
+            cursor: pointer;
+            
+        }
+        
+
+        .tape{
+            width:280px;
+            height:135px;
+            margin: -30px 500px 0px 500px;
+            position:absolute;
+            background-color:#96A177;
+            border: 1px solid #7C3434;
+            
+        }
+
+        .noteContent h2{
+            color:#7C3434;
+            font-size: 70px;
+            text-decoration: underline;
+        }
+        
+        .noteContent input{
+            border:3px solid #7C3434;
+            width:540px;
+            height:45px;
+            margin:18px 0px 38px 0px;
+            border-radius:10px;
+            text-align:center;
+            font-size:30px;
+            color:#7C3434;
+            
+        }
+        
+        .noteContent input:focus{
+            border:3px solid #7C3434;
+            background-color: #FFF6DA;
+        }
+        
+
+        .add{
+            margin:-10px 190px 70px 190px;
+            border:5px solid #7C3434;
+            border-radius: 150px;
+            width:200px;
+            height:200px;
+            font-family:sans-serif;
+            font-size: 125px;
+            color:#7C3434;
+        }
+
+        .noteInput button{
+            width: 200px;
+            height: 80px;
+            background-color: #7C3434;
+            color: #FFF6DA;
+            border: none;
+            padding: 10px 20px;
+            margin: 0px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight:bold;
+            font-size:30px;
+            transition: all .5s ease;
+        }
+
+        .noteInput button:hover{
+            color:white;
+            background-color: #F4D793;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="mainBody">
+        <header>
+                <div class="topHeader">
+                <img src="../../static/img/logo.svg">
+
+                <div class="searchBar">
+                    <img src="../../static/img/search.svg">
+                    <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
+                </div>
+
+                <div class="headerLogin">
+                    <button class="loginSignup">로그인</button>
+                    <button class="loginSignup">회원가입</button>
+                </div>
+            </div>
+
+            <hr>
+            <nav>
+                <button class="nav">CREATE</button>
+                <button class="nav">SPEEDY</button>
+                <button class="nav">ASK</button>
+                <button class="nav">MY</button>
+            </nav>
+            <hr>
+
+        </header>
+        <main>
+            <div class="tape"></div>
+            <div class="note">
+                <div class="noteContent">
+                    <h2>회원가입</h2>
+                    <br>
+                    <button><div class="add">+</div></button>
+                    <br>
+                    <div class="noteInput">
+                        닉네임
+                        <br>
+                        <input type="text">
+                        <br>
+                        아이디 
+                        <br>
+                        <input type="text">
+                        <br>
+                        이메일 
+                        <br>
+                        <input type="text">
+                        <br>
+                        비밀번호
+                        <br>
+                        <input type="text">
+                        <br>
+                        비밀번호확인
+                        <br>
+                        <input type="text">
+                        <br>
+
+                        <button>완료</button>
+                    </div>
+                </div>
+
+            </div>
+            
+        </main>
+    </div>
+</body>
+</html>
