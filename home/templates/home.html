@@ -12,7 +12,7 @@
 
     @font-face {
         font-family: 'HakgyoansimNadeuriTTF-L';
-        src: url("/static/font/Hakgyoansim_Nadeuri_TTF_L.ttf") format('truetype');
+        src: url("../../static/font/Hakgyoansim_Nadeuri_TTF_L.ttf") format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -99,6 +99,17 @@
             display:flex;
             flex-direction:column;
             justify-content:center;
+        }
+        .profilePic{
+            width: 110px;
+            height: 110px;
+            border: 4px solid #7C3434;
+            border-radius: 40%;
+        }
+        
+        .username{
+            color:#7C3434;
+            font-size: 35px;
         }
         .loginSignup{
             width: 163px;
@@ -244,6 +255,7 @@
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
 
+                <!--로그인 전 버튼 -->
                 <div class="headerLogin">
                     <a href="{% url 'accounts:login' %}">
                         <button class="loginSignup">로그인</button>
@@ -251,6 +263,17 @@
                     <a href="{% url 'accounts:signup' %}">
                         <button class="loginSignup">회원가입</button>
                     </a>
+                </div>
+
+                <!--로그인 후 프로필-->
+                <div class="headerLogin">
+                    <img class = "profilePic" src ="../static/img/profilepic.png">
+                    <div class = "username">ㅇㅇㅇ 님</div>
+                </div>
+                <!--로그인 후 프로필-->
+                <div class="headerLogin">
+                    <img class = "profilePic" src ="../../static/img/profilepic.png">
+                    <div class = "username">ㅇㅇㅇ 님</div>
                 </div>
             </div>
 
