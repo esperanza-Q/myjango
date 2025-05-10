@@ -213,17 +213,25 @@
     <div class="mainBody">
         <header>
                 <div class="topHeader">
-                <img src="../../static/img/logo.svg">
+                    <a href="{% url 'home:home' %}">
+                        <img src="../../static/img/logo.svg">
+                    </a>
 
                 <div class="searchBar">
-                    <img src="../../static/img/search.svg">
+                    {% comment %} <a href="{% url 'search' %}"> {% endcomment %}
+                        <img src="../../static/img/search.svg">
+                    {% comment %} </a> {% endcomment %}
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
 
                 <!--로그인 전 버튼 -->
                 <div class="headerLogin">
-                    <button class="loginSignup">로그인</button>
-                    <button class="loginSignup">회원가입</button>
+                    <a href="{% url 'home:toLogin' %}">
+                        <button class="loginSignup">로그인</button>
+                    </a>
+                    <a href="{% url 'home:toSignup' %}">
+                        <button class="loginSignup">회원가입</button>
+                    </a>
                 </div>
 
                 <!--로그인 후 프로필-->
@@ -235,10 +243,18 @@
 
             <hr>
             <nav>
-                <button class="nav">CREATE</button>
-                <button class="nav">SPEEDY</button>
-                <button class="nav">ASK</button>
-                <button class="nav">MY</button>
+                {% comment %} <a href="{% url 'create' %}"> {% endcomment %}
+                    <button class="nav">CREATE</button>
+                {% comment %} </a>
+                <a href="{% url 'speedy' %}"> {% endcomment %}
+                    <button class="nav">SPEEDY</button>
+                {% comment %} </a>
+                <a href="{% url 'ask' %}"> {% endcomment %}
+                    <button class="nav">ASK</button>
+                {% comment %} </a>
+                <a href="{% url 'mypage' %}"> {% endcomment %}
+                    <button class="nav">MY</button>
+                {% comment %} </a> {% endcomment %}
             </nav>
             <hr>
 
@@ -252,7 +268,7 @@
                         즐거운 '냉장고 털기'를 위해 myjango가 힘쓰겠습니다 :&#41;
                     </div>
                     
-                    <button class="accButton">홈으로</button>
+                    <a href="{% url 'home:home' %}"><button class="accButton">홈으로</button></a>
                     <button class="accButton">도움말 읽으러 가기</button>
                 </div>
             </div>

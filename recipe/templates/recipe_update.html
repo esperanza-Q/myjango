@@ -630,17 +630,25 @@
     <div class="mainBody">
         <header>
                 <div class="topHeader">
-                <img src="../../static/img/logo.svg">
+                    <a href="{% url 'home' %}">
+                        <img src="../../static/img/logo.svg">
+                    </a>
 
                 <div class="searchBar">
-                    <img src="../../static/img/search.svg">
+                    <a href="{% url 'search' %}">
+                        <img src="../../static/img/search.svg">
+                    </a>
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
 
                 <!--로그인 전 버튼 -->
                 <div class="headerLogin">
-                    <button class="loginSignup">로그인</button>
-                    <button class="loginSignup">회원가입</button>
+                    <a href="{% url 'login' %}">
+                        <button class="loginSignup">로그인</button>
+                    </a>
+                    <a href="{% url 'signup' %}">
+                        <button class="loginSignup">회원가입</button>
+                    </a>
                 </div>
 
                 <!--로그인 후 프로필-->
@@ -652,10 +660,18 @@
 
             <hr>
             <nav>
-                <button class="nav">CREATE</button>
-                <button class="nav">SPEEDY</button>
-                <button class="nav">ASK</button>
-                <button class="nav">MY</button>
+                <a href="{% url 'create' %}">
+                    <button class="nav">CREATE</button>
+                </a>
+                <a href="{% url 'speedy' %}">
+                    <button class="nav">SPEEDY</button>
+                </a>
+                <a href="{% url 'ask' %}">
+                    <button class="nav">ASK</button>
+                </a>
+                <a href="{% url 'mypage' %}">
+                    <button class="nav">MY</button>
+                </a>
             </nav>
             <hr>
 
