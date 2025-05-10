@@ -2,22 +2,27 @@ from django.shortcuts import render, redirect
 from .models import CustomUser
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
+from django.db import IntegrityError
+
 
 
 def signup(request):
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
+
+            try:
+                user = CustomUser.objects.create_user(
+                    nickname = request.POST['nickname'],
+                    username = request.POST['username'],
+                    email = request.POST['email'],
+                    password = request.POST['password1'],
+                    user_image = request.FILES['user_image']
+                )
+                return render(request, 'login.html')   
+
+            except IntegrityError:
+                return render(request, 'signup.html', {'error': '이미 존재하는 사용자명입니다.'})
             
-            user = CustomUser.objects.create_user(
-                nickname = request.POST['nickname'],
-                username = request.POST['username'],
-                email = request.POST['email'],
-                password = request.POST['password1'],
-                user_image = request.FILES['user_image']
-            )
-            # 정보를 한꺼번에 담아 객체 생성 or post = Post()로 객체 먼저 생성해도 됨! 적절하게 사용.
-            
-            return render(request, 'login.html')   
         return render(request, 'signup.html') 
     return render(request, 'signup.html')
 
