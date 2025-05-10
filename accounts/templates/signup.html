@@ -250,22 +250,22 @@
     <div class="mainBody">
         <header>
                 <div class="topHeader">
-                    <a href="{% url 'home' %}">
+                    <a href="{% url 'home:home' %}">
                         <img src="../../static/img/logo.svg">
                     </a>
 
                 <div class="searchBar">
-                    <a href="{% url 'search' %}">
+                    {% comment %} <a href="{% url 'search' %}"> {% endcomment %}
                         <img src="../../static/img/search.svg">
-                    </a>
+                    {% comment %} </a> {% endcomment %}
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
 
                 <div class="headerLogin">
-                    <a href="{% url 'login' %}">
+                    <a href="{% url 'home:toLogin' %}">
                         <button class="loginSignup">로그인</button>
                     </a>
-                    <a href="{% url 'signup' %}">
+                    <a href="{% url 'home:toSignup' %}">
                         <button class="loginSignup">회원가입</button>
                     </a>
                 </div>
@@ -273,18 +273,18 @@
 
             <hr>
             <nav>
-                <a href="{% url 'create' %}">
+                {% comment %} <a href="{% url 'create' %}"> {% endcomment %}
                     <button class="nav">CREATE</button>
-                </a>
-                <a href="{% url 'speedy' %}">
+                {% comment %} </a>
+                <a href="{% url 'speedy' %}"> {% endcomment %}
                     <button class="nav">SPEEDY</button>
-                </a>
-                <a href="{% url 'ask' %}">
+                {% comment %} </a>
+                <a href="{% url 'ask' %}"> {% endcomment %}
                     <button class="nav">ASK</button>
-                </a>
-                <a href="{% url 'mypage' %}">
+                {% comment %} </a>
+                <a href="{% url 'mypage' %}"> {% endcomment %}
                     <button class="nav">MY</button>
-                </a>
+                {% comment %} </a> {% endcomment %}
             </nav>
             <hr>
 
@@ -295,31 +295,38 @@
                 <div class="noteContent">
                     <h2>회원가입</h2>
                     <br>
-                    <button><div class="add">+</div></button>
-                    <br>
                     <div class="noteInput">
-                        닉네임
-                        <br>
-                        <input type="text">
-                        <br>
-                        아이디 
-                        <br>
-                        <input type="text">
-                        <br>
-                        이메일 
-                        <br>
-                        <input type="text">
-                        <br>
-                        비밀번호
-                        <br>
-                        <input type="text">
-                        <br>
-                        비밀번호확인
-                        <br>
-                        <input type="text">
-                        <br>
+                        <form method="POST" action="{% url 'accounts:signup' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <button>
+                                <div class="add">
+                                    <input type="file" name="user_image" required>
+                                </div>
+                            </button>                            
+                            <br>
+                            닉네임
+                            <br>
+                            <input type="text" name="nickname" required>
+                            <br>
+                            아이디 
+                            <br>
+                            <input type="text" name="username" required>
+                            <br>
+                            이메일 
+                            <br>
+                            <input type="text" name="email" required>
+                            <br>
+                            비밀번호
+                            <br>
+                            <input type="password" name="password1" required>
+                            <br>
+                            비밀번호확인
+                            <br>
+                            <input type="password" name="password2" required>
+                            <br>
+                            <button type="submit">완료</button>
 
-                        <button>완료</button>
+                        </form>
                     </div>
                 </div>
 
