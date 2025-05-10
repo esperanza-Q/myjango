@@ -447,62 +447,64 @@
     <div class="mainBody">
         <header>
                 <div class="topHeader">
-                    <a href="{% url 'home' %}">
+                    <a href="{% url 'home:home' %}">
                         <img src="../../static/img/logo.svg">
                     </a>
 
                 <div class="searchBar">
-                    <a href="{% url 'search' %}">
+                    {% comment %} <a href="{% url 'search' %}"> {% endcomment %}
                         <img src="../../static/img/search.svg">
-                    </a>
+                    {% comment %} </a> {% endcomment %}
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
 
-                <!--로그인 전 버튼 -->
-                <div class="headerLogin">
-                    <a href="{% url 'login' %}">
-                        <button class="loginSignup">로그인</button>
-                    </a>
-                    <a href="{% url 'signup' %}">
-                        <button class="loginSignup">회원가입</button>
-                    </a>
-                </div>
+                {% if request.user.is_authenticated %}
+                    <!--로그인 후 프로필-->
+                    <div class="headerLogin">
+                        <img class = "profilePic" src ="../static/img/profilepic.png">
+                        <div class = "username">{{request.user}} 님</div>
+                    </div>
 
-                <!--로그인 후 프로필-->
-                <div class="headerLogin">
-                    <img class = "profilePic" src ="../static/img/profilepic.png">
-                    <div class = "username">ㅇㅇㅇ 님</div>
-                </div>
+                {% else %}
+                    <!--로그인 전 버튼 -->
+                    <div class="headerLogin">
+                        <a href="{% url 'accounts:login' %}">
+                            <button class="loginSignup">로그인</button>
+                        </a>
+                        <a href="{% url 'accounts:signup' %}">
+                            <button class="loginSignup">회원가입</button>
+                        </a>
+                    </div>
+                {% endif %}
             </div>
 
             <hr>
             <nav>
-                <a href="{% url 'create' %}">
+                <a href="{% url 'recipe:create' %}">
                     <button class="nav">CREATE</button>
                 </a>
-                <a href="{% url 'speedy' %}">
+                {% comment %}<a href="{% url 'speedy' %}"> {% endcomment %}
                     <button class="nav">SPEEDY</button>
-                </a>
-                <a href="{% url 'ask' %}">
+                {% comment %} </a>
+                <a href="{% url 'ask' %}"> {% endcomment %}
                     <button class="nav">ASK</button>
-                </a>
-                <a href="{% url 'mypage' %}">
+                {% comment %} </a>
+                <a href="{% url 'mypage' %}"> {% endcomment %}
                     <button class="nav">MY</button>
-                </a>
+                {% comment %} </a> {% endcomment %}
             </nav>
             <hr>
 
         </header>
         <main>
-            
             <div class="recipeCardDiv">
                 <div class="recipePic">
-                    <img src="../../static/img/temp.jpg">
+                    <img src="{{recipe.recipe_image.url}}">
                     <div class="recipeTitleBox">
-                        <div class="recipeTitle">돌솥비빔밥</div>
+                        <div class="recipeTitle">{{recipe.title}}</div>
                     </div>
                     <div class="recipeTitleBox">
-                        <div class="recipeDescription">(간단한 레시피 설명)</div>
+                        <div class="recipeDescription">({{recipe.summary}})</div>
                     </div>
                     
                     

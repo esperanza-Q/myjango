@@ -622,49 +622,52 @@
     <div class="mainBody">
         <header>
                 <div class="topHeader">
-                    <a href="{% url 'home' %}">
+                    <a href="{% url 'home:home' %}">
                         <img src="../../static/img/logo.svg">
                     </a>
 
                 <div class="searchBar">
-                    <a href="{% url 'search' %}">
+                    {% comment %} <a href="{% url 'search' %}"> {% endcomment %}
                         <img src="../../static/img/search.svg">
-                    </a>
+                    {% comment %} </a> {% endcomment %}
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
 
                 
-                <!--로그인 전 버튼 -->
-                <div class="headerLogin">
-                    <a href="{% url 'login' %}">
-                        <button class="loginSignup">로그인</button>
-                    </a>
-                    <a href="{% url 'signup' %}">
-                        <button class="loginSignup">회원가입</button>
-                    </a>
-                </div>
+                {% if request.user.is_authenticated %}
+                    <!--로그인 후 프로필-->
+                    <div class="headerLogin">
+                        <img class = "profilePic" src ="../static/img/profilepic.png">
+                        <div class = "username">{{request.user}} 님</div>
+                    </div>
 
-                <!--로그인 후 프로필-->
-                <div class="headerLogin">
-                    <img class = "profilePic" src ="../static/img/profilepic.png">
-                    <div class = "username">ㅇㅇㅇ 님</div>
-                </div>
+                {% else %}
+                    <!--로그인 전 버튼 -->
+                    <div class="headerLogin">
+                        <a href="{% url 'accounts:login' %}">
+                            <button class="loginSignup">로그인</button>
+                        </a>
+                        <a href="{% url 'accounts:signup' %}">
+                            <button class="loginSignup">회원가입</button>
+                        </a>
+                    </div>
+                {% endif %}
             </div>
 
             <hr>
             <nav>
-                <a href="{% url 'create' %}">
+                <a href="{% url 'recipe:create' %}">
                     <button class="nav">CREATE</button>
                 </a>
-                <a href="{% url 'speedy' %}">
+                {% comment %}<a href="{% url 'speedy' %}"> {% endcomment %}
                     <button class="nav">SPEEDY</button>
-                </a>
-                <a href="{% url 'ask' %}">
+                {% comment %} </a>
+                <a href="{% url 'ask' %}"> {% endcomment %}
                     <button class="nav">ASK</button>
-                </a>
-                <a href="{% url 'mypage' %}">
+                {% comment %} </a>
+                <a href="{% url 'mypage' %}"> {% endcomment %}
                     <button class="nav">MY</button>
-                </a>
+                {% comment %} </a> {% endcomment %}
             </nav>
             <hr>
 
@@ -672,18 +675,26 @@
         <main>
             
             <div class="recipeCardDiv">
-                <div class="recipePic">
-                    <button class="recipePicButton"> 레시피 사진 추가 </button>
-                    <div class="recipeTitleBox">
-                        <input class="recipeTitle" placeholder="음식 이름">
+                <form action="{% url 'recipe:create' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="recipePic">
+                        <button class="recipePicButton"> 
+                            <!-- 파일 선택 수정 필요 -->
+                            <input type="file" name="recipe_image" required> <br>
+                            레시피 사진 추가
+                        </button>                        
+                        <div class="recipeTitleBox">
+                            <input name="title" type="text" class="recipeTitle" placeholder="음식 이름">
+                        </div>
+                        <div class="recipeTitleBox">
+                            <input name="summary" type="text" class="recipeDescription" placeholder="(간단한 레시피 설명)">
+                        </div>
                     </div>
-                    <div class="recipeTitleBox">
-                        <input class="recipeDescription" placeholder="(간단한 레시피 설명)">
-                    </div>
-                    
-                    
-                </div>
+                        <button type="submit">작성 완료</button>
 
+                </form>
+
+                {% comment %} 추후 구현 {% endcomment %}
                 <div class ="recipeHorizontalDiv">
                     <div class="recipeLikeDiv">
                         <div class="likeEmoji"> &#128512;</div>
@@ -697,8 +708,8 @@
                                 <li>계란 2개 <button class="listButton">삭제</button></li> 
                                 <li>당근 반개 <button class="listButton">삭제</button></li>
                                 <li>계란 2개 <button class="listButton">삭제</button></li>
-                                
                             </ul>
+
                             <div class="ingredient-form">
                                 <input type="text" id="ingredient-name" placeholder="재료 이름">
                                 <input type="number" id="ingredient-amount" placeholder="양" min="1">
@@ -708,6 +719,8 @@
                         </div>
                     </div>
                 </div>
+                {% comment %} 추후 구현 {% endcomment %}
+
 
             </div>
 
@@ -715,17 +728,20 @@
                 <div class="recipeTime">
                     <div class="timeDiv">
                         <h5>소요시간</h5>
-                        <input class="time" >
-                           
-                        
+                        <input class="time">
                     </div>
                     <div class="divider"></div>
+
+                    <!-- 추후 구현 -->
                     <div class="servingsDiv">
                         <input type="number" min = 0>
                         <p>인분</p>
                     </div>
 
                 </div>
+                <!-- 추후 구현 -->
+
+                <!-- 추후 구현 -->
                 <button class="recipeScrap">
                     <div class="recipeScrapDiv">
                         <img src="../../static/img/scrap.svg">
@@ -733,6 +749,8 @@
                     스크랩
                 </button>
             </div>
+            <!-- 추후 구현  -->
+
 
             <div class="pageDivider"> </div>
 
