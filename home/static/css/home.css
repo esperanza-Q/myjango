@@ -93,6 +93,16 @@ nav {
     height: 110px;
     border: 4px solid #7C3434;
     border-radius: 40%;
+}      
+.username{
+    color:#7C3434;
+    font-size: 35px;
+}
+.profilePic{
+    width: 110px;
+    height: 110px;
+    border: 4px solid #7C3434;
+    border-radius: 40%;
 }
 
 .username{
