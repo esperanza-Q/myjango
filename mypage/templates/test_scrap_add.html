@@ -1,0 +1,74 @@
+{%load static%}
+
+<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        .scrap-list {
+            list-style: none;
+            padding: 0;
+            display:flex;
+            flex-wrap: wrap;
+            
+        }
+        .scrap-item {
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            width:80px;
+            height:80px;
+            margin-right:31px;
+            margin-left:31px;
+            align-items: center;     
+            justify-content: center; 
+            text-align: center;
+        }
+        .scrap-item a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+
+<a href="{%url 'mypage:mypage'%}"><h2>My Page</h2></a>
+<div style = "width : 2000px; height:auto; display:flex;">
+    {% comment %} 아래 스크랩 목록 {% endcomment %}
+    <div style = "width : 600px; height:500px; border:1px solid black; overflow-y: scroll; overflow-x: hidden; margin-right:50px;">
+        <h2 style="align-items: center; justify-content: center; text-align: center;">스크랩 목록</h2>
+        {% comment %} <div style="text-align:center; content-justify:center;">
+            <a href="{%url 'mypage:scrap_add'%}"><span>추가하기</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{%url 'mypage:scrap_add'%}"><span>삭제하기</span></a>
+        </div> {% endcomment %}
+        <ul class="scrap-list">
+            {% for scrap in scraps %}
+                <a href="{%url 'mypage:scrap_detail' scrap_id=scrap.id %}">
+                <li class="scrap-item">
+                    <label>
+                        <img src="{% static 'img/바구니.png' %}" alt="바구니" style="width:50px;height:50px;">
+                        <p style="width:70px;height:20px;">{{scrap.name}}</p>
+                    </label>
+                </li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% comment %} 여기 아래 그룹 추가 폼 {% endcomment %}
+    <form method='POST' style="border:1px solid black; width:300px; height:200px; align-items: center; justify-content: center; text-align: center;">
+        {% csrf_token %}
+        <h2>새그룹 추가</h2>
+        <p>그룹이름</p>
+        <input type='text' name='scrapName'><br><br>
+        <button type='submit'>추가</button>
+    </form>
+</div>
