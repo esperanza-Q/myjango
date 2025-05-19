@@ -1,0 +1,32 @@
+{% load static %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="icon-form" style="display:flex;">
+        <div class="icon-option">
+            <label for="meat"><img src="{% static "img\재료아이콘\고기테스트.png" %}" alt="고기" style="width:100px;height:100px;"></label><br>
+            <input type="radio" name="icon" id="meat" value="meat">
+        </div>
+
+        <div class="icon-option">
+            <label for="vegetable"><img src="{% static "img\재료아이콘\채소테스트.png" %}" alt="채소" style="width:100px;height:100px;"></label><br>
+            <input type="radio" name="icon" id="vegetable" value="vegetable">
+        </div>
+
+        <div class="icon-option">
+            <label for="fruit"><img src="{% static "img\재료아이콘\과일테스트.png" %}" alt="과일" style="width:100px;height:100px;"></label><br>
+            <input type="radio" name="icon" id="fruit" value="fruit">
+        </div>
+
+        <div class="icon-option">
+            <label for="sauce"><img src="{% static "img\재료아이콘\소스테스트.png" %}" alt="소스" style="width:100px;height:100px;"></label><br>
+            <input type="radio" name="icon" id="sauce" value="sauce">
+        </div>
+    </div>
+    <p> 재료 이름 : {{form.name}} </p><br>
+    <p> 재료량 : {{form.amounts}} &nbsp;&nbsp;&nbsp; 단위 : {{form.unit}} </p>
+    <p> <br>
+    <p> 유통기한 : <input type='datetime-local' name='expiration_date'> </p><br>
+
+    <button type='submit'>저장</button>
+</form>
