@@ -43,14 +43,14 @@
     </style>
 </head>
 <body>
-    <a href="{%url 'mypage:mypage'%}"><h2>My Page</h2>
+    <a href="{%url 'mypage:mypage'%}"><h2>My Page</h2></a>
 
     <a href="#"><div style = "width : 400px; height:200px; border:1px solid black;">알레르기</div></a>
     <div style = "width : 1000px; height:500px;display:flex;">
         <div style = "width : 400px; height:500px; border:1px solid black;">
             <ul class="ingredient-list">
             {% for ingredient in ingredients %}
-                <a href="#"><li class="ingredient-item">
+                <a href="{%url 'mypage:ing_detail' ing_id=ingredient.id %}"><li class="ingredient-item">
                     <img src="{% static ingredient.icon %}" alt="아이콘" style="width:50px;height:50px;">
                 </li></a>
             {% empty %}
