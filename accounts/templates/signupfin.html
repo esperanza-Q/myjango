@@ -1,9 +1,7 @@
-<<<<<<< Updated upstream
-=======
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/signupfin.css' %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +30,7 @@
         /*--body--*/
         body {
             width: 1440px;
-            height: 2265px;
+            height: 1040px;
             background-color: #F4D793;
             
             text-align: center;
@@ -43,7 +41,7 @@
         .mainBody{
             
             width: 1290px;
-            height: 2132px;
+            height: 900px;
             background-color: white;
             border-radius:35px;
             
@@ -105,7 +103,8 @@
             height: 110px;
             border: 4px solid #7C3434;
             border-radius: 40%;
-        }      
+        }
+        
         .username{
             color:#7C3434;
             font-size: 35px;
@@ -174,40 +173,37 @@
             width:760px;
             height:481px;
             background-color: #FCEED2;
-            border-radius:30px;
+            display:relative;
+            
         }
 
+        
         .accInput{
-            padding:60px 0px 0px 0px;
-        }
-
-        .accInputText{
-            margin:30px;
-            width: 515px;
-            height:65px;
+            background-color: #7C3434;
+            padding:50px;
+            padding-top:90px;
+            margin:50px 80px 10px 80px;
+            width: 500px;
+            height: 160px;
             border:5px solid #7C3434;
             border-radius: 40px;
-            font-size:23px;
+            font-size:50px;
             text-align: center;
+            color:#FCEED2;
+
+        }
+
+        .accButton{
+            margin-top:10px;
+            background-color: #FCEED2;
+            border:none;
+            color:#7C3434;
+            font-size:25px;
+            text-decoration: underline;
+            cursor:pointer;
         }
         
-        .accButton{
-            width: 230px;
-            height: 75px;
-            background-color: #7C3434;
-            color: #FFF6DA;
-            border: none;
-            padding: 10px 20px;
-            margin: 30px 0px 0px 0px;
-            cursor: pointer;
-            border-radius: 40px;
-            font-size:23px;
-            transition: all .5s ease;
-        }
-        .accButton:hover{
-            background-color: #F4D793;
-            color:#7C3434;
-        }
+        
 
     </style>
 
@@ -227,7 +223,7 @@
                     {% comment %} </a> {% endcomment %}
                     <input class="searchInput" type="text" placeholder="누르면 검색 창으로 넘어갑니다.">
                 </div>
-                
+
                 {% if request.user.is_authenticated %}
                     <!--로그인 후 프로필-->
                     <div class="headerLogin">
@@ -246,7 +242,6 @@
                         </a>
                     </div>
                 {% endif %}
-
             </div>
 
             <hr>
@@ -269,17 +264,15 @@
         </header>
         <main>
             <div class="accBox">
-                <h2>로그인</h2>
+            
                 <div class="accInputBox">
-                    <form action="{% url 'accounts:login' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="accInput">
-                        <input name="username" class="accInputText" type="text" placeholder="아이디">
-                        <br>
-                        <input name="password" class="accInputText" type="password" placeholder="비밀번호">
-                        </div>
-                        <button class="accButton" type="submit">로그인</button>
-                    </form>
+                    <br>
+                    <div class="accInput">
+                        즐거운 '냉장고 털기'를 위해 myjango가 힘쓰겠습니다 :&#41;
+                    </div>
+                    
+                    <a href="{% url 'home:home' %}"><button class="accButton">홈으로</button></a>
+                    <button class="accButton">도움말 읽으러 가기</button>
                 </div>
             </div>
         </main>
@@ -288,4 +281,3 @@
 </html>
 
 
->>>>>>> Stashed changes
