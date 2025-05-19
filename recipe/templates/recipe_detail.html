@@ -461,7 +461,7 @@
                 {% if request.user.is_authenticated %}
                     <!--로그인 후 프로필-->
                     <div class="headerLogin">
-                        <img class = "profilePic" src ="../static/img/profilepic.png">
+                        <img class = "profilePic" src ="{{request.user.user_image.url}}">
                         <div class = "username">{{request.user}} 님</div>
                     </div>
 
