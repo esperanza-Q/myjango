@@ -258,7 +258,7 @@
                 {% if request.user.is_authenticated %}
                     <!--로그인 후 프로필-->
                     <div class="headerLogin">
-                        <img class = "profilePic" src ="../static/img/profilepic.png">
+                        <img class = "profilePic" src ="{{request.user.user_image.url}}">
                         <div class = "username">{{request.user}} 님</div>
                     </div>
 
@@ -285,10 +285,10 @@
                 {% comment %} </a>
                 <a href="{% url 'ask' %}"> {% endcomment %}
                     <button class="nav">ASK</button>
-                {% comment %} </a>
-                <a href="{% url 'mypage' %}"> {% endcomment %}
-                    <button class="nav">MY</button>
                 {% comment %} </a> {% endcomment %}
+                <a href="{% url 'mypage:mypage' %}"> 
+                    <button class="nav">MY</button>
+                </a>
             </nav>
             <hr>
 

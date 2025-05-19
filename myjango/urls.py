@@ -23,8 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('myjango/', include('home.urls')),
     path('accounts/', include('accounts.urls')),
-    path('recipe/', include('recipe.urls'))
-]
+    path('recipe/', include('recipe.urls')),
+    path('mypage/', include('mypage.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
