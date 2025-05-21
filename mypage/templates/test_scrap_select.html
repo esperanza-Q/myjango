@@ -1,0 +1,41 @@
+{% load static %}
+
+<form method="POST" action="{% url 'mypage:add_to_scrap_folder' recipe.id %}">
+    {% csrf_token %}
+    <div style="width: 720px; height: 500px; border: 1px solid #c8b8a5; background-color: #f6eddc; border-radius: 10px; overflow-y: scroll; overflow-x: hidden;">
+        <h2 style="text-align: center; font-size: 28px; font-weight: bold; margin-top: 20px;">스크랩 선택</h2>
+        
+        <ul class="scrap-list">
+            {% for scrap in scraps %}
+                <li class="scrap-item">
+                    <label style="display: flex; flex-direction: column; align-items: center;">
+                        <input type="checkbox" name="scrap_ids" value="{{ scrap.id }}"
+                            {% if scrap.id in scrap_ids_with_recipe %}checked{% endif %}>
+                        <img src="{% static 'img/바구니.png' %}" alt="바구니" style="width: 60px; height: 60px;">
+                        <span>{{ scrap.name }}</span>
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div style="text-align: right; padding: 10px 20px;">
+            <button type="submit" style="background: none; border: none; font-weight: bold; color: #805d3a;">완료</button>
+        </div>
+    </div>
+</form>
+
+<style>
+    .scrap-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .scrap-item {
+        width: 120px;
+        margin: 10px 20px;
+        text-align: center;
+    }
+</style>

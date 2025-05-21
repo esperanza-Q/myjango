@@ -110,7 +110,7 @@
         <div class="scroll-box">
             <ul class="scrapRecipe-list">
                 {% for scrapRecipe in scrapRecipes %}
-                    <li>{{ scrapRecipe.title }}</li>
+                    <a href="{%url 'recipe:detail' recipe_id=scrapRecipe.recipe.id %}"><li>{{ scrapRecipe.recipe.title }}</li></a>
                 {% empty %}
                     <li>등록된 글이 없습니다.</li>
                 {% endfor %}

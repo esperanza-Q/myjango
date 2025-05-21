@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from django.shortcuts import render, redirect, get_object_or_404
 
 from recipe.models import Recipe
@@ -123,12 +124,48 @@ def scrap_detail(request, scrap_id):
         'scrapRecipes' : scrapRecipes
     }
     return render(request, 'test_scrap_detail.html', context)
-    
-# def add_to_scrap_folder(request, recipe_id, scrap_id):
-#     scrap = Scrap.objects.get(id=scrap_id, user=request.user)
-#     recipe = Recipe.objects.get(id=recipe_id)
 
-#     # 이미 스크랩되어 있는지 확인
-#     if not ScrapRecipe.objects.filter(scrap=scrap, recipe=recipe).exists():
-#         ScrapRecipe.objects.create(scrap=scrap, recipe=recipe)
+def scrap_select_view(request, recipe_id):
+    scraps = Scrap.objects.filter(user=request.user)  # 사용자별 스크랩 필터
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+
+    # 이 레시피가 포함된 스크랩 ID 목록
+    scrap_ids_with_recipe = ScrapRecipe.objects.filter(recipe=recipe, scrap__in=scraps).values_list('scrap_id', flat=True)
+    
+    context = {
+        'scraps': scraps,
+        'recipe': recipe,
+        'scrap_ids_with_recipe': list(scrap_ids_with_recipe),
+    }
+    
+    return render(request, 'test_scrap_select.html', context)
+    
+def add_to_scrap_folder(request, recipe_id):
+    
+    if request.method == "POST":
+        recipe = get_object_or_404(Recipe, id=recipe_id)
+        user_scraps = Scrap.objects.filter(user=request.user)
+        selected_scrap_ids = request.POST.getlist('scrap_ids')  # ['1', '3', ...]
+
+        # 기존에 연결되어 있던 스크랩 목록
+        existing_scrap_ids = ScrapRecipe.objects.filter(recipe=recipe, scrap__in=user_scraps).values_list('scrap_id', flat=True)
+
+        # 새로 추가해야 할 scrap_id들
+        to_add = set(selected_scrap_ids) - set(map(str, existing_scrap_ids))
+        # 제거해야 할 scrap_id들
+        to_remove = set(map(str, existing_scrap_ids)) - set(selected_scrap_ids)
+        
+        # 추가
+        for scrap_id in to_add:
+            scrap = get_object_or_404(Scrap, id=scrap_id, user=request.user)
+            ScrapRecipe.objects.create(scrap=scrap, recipe=recipe)
+
+        # 삭제
+        for scrap_id in to_remove:
+            ScrapRecipe.objects.filter(scrap_id=scrap_id, recipe=recipe).delete()
+
+        # messages.success(request, "스크랩 정보가 업데이트되었습니다.")
+        return redirect('recipe:detail', recipe_id=recipe.id)
+
+    return redirect('recipe:detail', recipe_id=recipe_id)
     

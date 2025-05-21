@@ -1,7 +1,7 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import mypage, myref, ing_add, ing_detail, ing_delete, ing_update, scrap, scrap_addFolder, scrap_deleteFolder, scrap_detail
+from .views import mypage, myref, ing_add, ing_detail, ing_delete, ing_update, scrap, scrap_addFolder, scrap_deleteFolder, scrap_detail, scrap_select_view, add_to_scrap_folder
 
 app_name='mypage'
 
@@ -18,4 +18,7 @@ urlpatterns = [
     path('scrap/scrap_add/', scrap_addFolder, name='scrap_add'),
     path('scrap/scrap_delete/', scrap_deleteFolder, name='scrap_delete'),
     path('scrap/scrap_detail/<int:scrap_id>/', scrap_detail, name='scrap_detail'),
+    #게시글에서 스크랩 추가
+    path('scrap/select/<int:recipe_id>/', scrap_select_view, name='scrap_select'),
+    path('scrap/submit/<int:recipe_id>/', add_to_scrap_folder, name='add_to_scrap_folder'),   
 ]
