@@ -488,10 +488,10 @@
                 {% comment %} </a>
                 <a href="{% url 'ask' %}"> {% endcomment %}
                     <button class="nav">ASK</button>
-                {% comment %} </a>
-                <a href="{% url 'mypage' %}"> {% endcomment %}
+                {% comment %} </a>{% endcomment %}
+                <a href="{% url 'mypage:mypage' %}"> 
                     <button class="nav">MY</button>
-                {% comment %} </a> {% endcomment %}
+                </a> 
             </nav>
             <hr>
 
@@ -556,12 +556,12 @@
                     </div>
 
                 </div>
-                <button class="recipeScrap">
+                <a href="{%url 'mypage:scrap_select' recipe_id=recipe.id %}"><button class="recipeScrap">
                     <div class="recipeScrapDiv">
                         <img src="../../static/img/scrap.svg">
                     </div>
                     스크랩
-                </button>
+                </button></a>
             </div>
 
             <div class="pageDivider"> </div>
