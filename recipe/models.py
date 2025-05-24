@@ -6,6 +6,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=30)
     summary = models.CharField(max_length=150)
     recipe_image = models.ImageField(upload_to="post_image/")
+    cooked_time = models.IntegerField(null=False, default=30, verbose_name="소요 시간")
 
     
 class RecipeIngredient(models.Model):
