@@ -1,0 +1,616 @@
+
+@font-face {
+    font-family: 'HakgyoansimNadeuriTTF-L';
+    src: url("../../static/font/Hakgyoansim_Nadeuri_TTF_L.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+*{
+    font-family:"HakgyoansimNadeuriTTF-L";
+}
+
+/*--body--*/
+body {
+    width: 1440px;
+    height: 2265px;
+    background-color: #F4D793;
+    
+    text-align: center;
+
+
+}
+
+.mainBody{
+    
+    width: 1290px;
+    height: 2132px;
+    background-color: white;
+    border-radius:35px;
+    
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -645px;
+}
+
+/*--HEADER START--*/
+
+.topHeader {
+    margin-top:15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.searchBar{
+    
+    width:730px;
+    height:80px;
+    
+    border: 10px solid #7a3b2e;
+    border-radius: 100px;
+}
+
+.searchBar img{
+    margin-bottom:-5px;
+}
+
+.searchInput{
+    margin-top:15px;
+    border: 1px #7C3434;
+    border-radius:100px;
+    width:600px;
+    outline:none;
+    height:50px;
+    font-size:40px;
+    text-align:center;
+
+}
+
+
+nav {
+    background-color: #FFF;
+    padding: 10px;
+}
+.headerLogin{
+    margin-right:50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.profilePic{
+    width: 110px;
+    height: 110px;
+    border: 4px solid #7C3434;
+    border-radius: 40%;
+}      
+.username{
+    color:#7C3434;
+    font-size: 35px;
+}
+.profilePic{
+    width: 110px;
+    height: 110px;
+    border: 4px solid #7C3434;
+    border-radius: 40%;
+}
+
+.username{
+    color:#7C3434;
+    font-size: 35px;
+}
+.loginSignup{
+    width: 163px;
+    height: 50px;
+    background-color: #7C3434;
+    color: #FFF6DA;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight:bold;
+    font-size:30px;
+    transition: all .5s ease;
+}
+
+.loginSignup:hover{
+    color:white;
+    background-color: #F4D793;
+}
+
+hr{
+    border: 3px solid #976146;
+}
+
+.nav {
+    background-color: white;
+    color:#7C3434;
+    border: none;
+    padding: 5px 20px;
+    margin: 0px 30px 0px 40px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight:bold;
+    font-size:55px;
+    width:220px;
+    
+
+    transition: all .5s ease;
+    
+}
+
+.nav:hover{
+    background-color: #F4D793;
+    color:white;
+}
+
+/*--HEADER END--*/
+
+
+.recipeCardDiv{
+    
+    margin: 50px 120px 20px 120px;
+    width:1050px;
+    height:650px;
+    display:flex;
+}
+
+.recipePic{
+    
+    width:530px;
+    height:610px;
+    background-color: #FCEED2;
+    border:1px solid #B29170;
+    border-radius:30px;
+
+}
+
+.recipePic button{
+    width:460px;
+    height:420px;
+    margin:35px 0px 10px 0px;
+    background-color: #CCBCA1;
+    color:#7C3434;
+    border:0px;
+    font-size:32px;
+}
+
+.recipePic button:hover{
+    color:white;
+    background-color: #B29170;
+}
+
+.recipeTitleBox{
+    width:530px;
+    height:70px;
+    position:relative;
+    
+}
+
+.recipeTitle{ 
+    width: 460px;
+    caret-color: #7C3434; 
+    height:70px;
+    outline:none;
+    border:none;
+    margin:0px 35px 0px 30px;
+    float:right;
+    text-shadow: -1px 0 #7C3434, 0 1px #7C3434, 1px 0 #7C3434, 0 -1px #7C3434;
+    color:#FFF;
+    font-size:60px;
+
+}
+
+.recipeTitle::placeholder{
+    
+    color:#FFF;
+    text-shadow: -1px 0 #976146, 0 1px #976146, 1px 0 #976146, 0 -1px #976146;
+
+}
+
+
+.recipeDescription{
+    width:460px;
+    height:46px;
+    outline:none;
+    border:none;
+    font-size:30px;
+    margin-right:35px;
+    float:right;
+    color:#7C3434;
+}
+
+
+.recipeLikeDiv{
+    display:flex;
+}
+
+.likeEmoji {
+    margin: 0px 20px 20px 50px;
+    width:195px;
+    height:80px;
+    margin-bottom:-10px;
+    position: relative;
+    background: #D7E0BC;
+    border-radius: .4em;
+    font-size:60px;
+}
+
+.likeEmoji:after {
+    
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 0;
+    height: 0;
+    border: 40px solid transparent;
+    border-top-color: #D7E0BC;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -10px;
+}
+
+.likeNum{
+    width:240px;
+    height:76px;
+    background-color: #FCEED2;
+    border:1px solid #B29170;
+    border-radius: 25px;
+    font-size: 28px;
+}
+
+.likeNum div{
+    margin-top:20px;
+    color:#7C3434;
+}
+
+.tape{
+    position:absolute;
+    transform: rotate(40deg);
+    width:155px;
+    height:50px;
+    top:520px;
+    right:100px;
+    background-color:#96A177;
+    border: 1px solid #7C3434;
+    
+}
+
+
+.recipeIngredientCard{
+
+    margin: 60px 20px 20px 50px;
+
+    width:450px;
+    height:495px;
+    background-color: #B29170;
+    border: 1px solid #7C3434;
+    align-items: center;
+}
+
+.recipeIngredients{
+    width:385px;
+    height:425px;
+    background-color: #fff;
+    border:1px solid #7C3434;
+    margin:30px;
+}
+
+.recipeIngredients h3{
+    font-size:40px;
+    color:#7C3434;
+    line-height: 27px;
+}
+
+.recipeIngredients ul{
+    width:250px;
+    height:250px;
+    margin: 0px 47px 0px 47px;
+    overflow:hidden; 
+    overflow-y:scroll;
+    
+    
+}
+
+.recipeIngredients ul::-webkit-scrollbar{
+    width: 10px;
+}
+
+.recipeIngredients ul::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+.recipeIngredients ul::-webkit-scrollbar-thumb { 
+    background-color: #96A177;
+}
+
+
+.recipeIngredients li{
+    height:60px;
+    font-size:25px;
+    color:#7C3434;
+    line-height: 40px;
+    text-align: left;
+}
+
+.ingredient-form{
+    padding:10px;
+    
+}
+
+.ingredient-form input {
+    height: 30px;
+    outline:none;
+    width:80px;
+    padding: 0 8px;
+    border-radius: 10px;
+    border: 1px solid #B29170;
+    font-size: 18px;
+    color: #7C3434;
+}
+
+.ingredient-form input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    opacity: 1;
+    height:20px;
+    color: #FFF;
+}
+#ingredient-amount {
+    width:50px;
+}
+.ingredient-form button {
+    
+    margin-top: 5px;
+    margin-left:3px;
+    width:50px;
+    height:30px;
+    border:1px solid #7C3434;
+    background-color: #7C3434;
+    border-radius: 20px;
+    font-size: 18px;
+    color:#FFF2CE;
+}
+
+.ingredient-form button:hover {
+    color:#FFF2CE;
+    background-color: #976146;
+    border: #976146;
+}
+
+.delete-btn {
+    background-color: #f4d793;
+    border: 1px solid #7c3434;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.listButton{
+    float:right;
+    margin-top: 5px;
+    width:50px;
+    height:30px;
+    border:1px solid #7C3434;
+    background-color: #7C3434;
+    border-radius: 20px;
+    font-size: 18px;
+    color:#FFF2CE;
+}
+
+.listButton:hover{
+    color:#FFF2CE;
+    background-color: #976146;
+    border: #976146;
+}
+
+.recipeInfoDiv{
+    display:flex;
+    color:#7C3434;
+    margin-left:300px;
+}
+
+
+
+.recipeTime{
+    display:flex;
+    width: 510px;
+    height:140px;
+    background-color: #D7E0BC;
+    margin:0px 20px 0px 0px;
+    border:1px solid #B29170;
+
+    border-radius: 20px;
+}
+
+.recipeTime h5{
+    font-size: 23px;
+
+}
+
+.timeDiv{
+    font-weight: bold;
+    width:190px;
+    font-size: 45px;
+    line-height: 10px;
+    
+}
+.timeDiv input{
+    margin: -40px 20px 0px 20px;
+    width:120px;
+    height:50px;
+    border-radius: 10px;
+    outline:none;
+    border: 1px #FFF;
+    color:#7C3434;
+    font-size:40px;
+    text-align: center;
+}
+
+.servingsDiv{
+    margin-left:60px;
+    width:260px;
+    font-size: 40px;
+    margin-top:35px;
+    text-align: center;
+    display:flex;
+}
+
+.servingsDiv p{
+    margin:10px 0px 0px 15px;
+}
+
+.servingsDiv input{
+    font-size:30px;
+    width:150px;
+    height:60px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    color:#7C3434;
+    text-align: center;
+}
+
+.servingsDiv input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    opacity: 1;
+    height:40px;
+    color: #FFF;
+}
+
+
+.recipeScrap{
+    margin-top:-1px;
+    width:160px;
+    height:144px;
+    border:1px solid #B29170;
+    background-color:#fff;
+    border-radius: 20px;
+    font-size: 25px;
+    color:#7C3434;
+    cursor: pointer;
+    
+}
+
+.recipeScrap:hover{
+    background-color: #FCEED2;
+}
+
+.recipeScrap img{
+    width:83px;
+    height:84px;
+}
+
+
+
+
+
+
+.divider {
+    border-left: 1px solid #B29170;
+    margin-top:20px;
+    width: 0px;
+    height: 100px;
+    
+    right: 250px;
+    top: 10px;
+}
+
+.pageDivider{
+    border-top: 1px solid #B29170;
+    margin: 80px 40px 80px 40px;
+    width: 1200px;
+    height: 0px;
+    
+}
+
+.recipeSteps{
+    text-align: left;
+    color:#7C3434;
+    font-size: 32px;
+}
+
+.stepNum{
+    margin: 30px 0px 10px 120px;
+    
+    text-shadow: -1px 0 #7C3434, 0 1px #7C3434, 1px 0 #7C3434, 0 -1px #7C3434;
+    color:#F4D793;
+    font-size:60px;
+    font-weight:bold;
+
+}
+
+.stepInstructionsWrapper{
+    margin:20px 20px 10px 120px;
+    width: 1000px;
+    height: 200px;
+    font-size: 30px;
+    padding: 10px;
+    border: 1px solid #B29170;
+    border-radius: 20px;
+    outline:none;
+    resize: vertical;
+    display: block;
+
+}
+.stepInstructions{
+    
+    width: 900px;
+    height: 180px;
+    font-size: 30px;
+    outline:none;
+    border:none;
+    color: #7C3434;
+    outline:none;
+    resize: vertical;
+    display: block;
+    resize: none;
+    overflow-y:scroll;
+} 
+
+.stepInstructions::-webkit-scrollbar{
+    width: 30px;
+    
+}
+
+.stepInstructions::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+.stepInstructions::-webkit-scrollbar-thumb { 
+
+    background-color: #96A177;
+    border-radius: 20px;
+    border: 8px solid transparent;
+    background-clip: content-box; 
+}
+
+.addStep{
+    float:left;
+    margin-left: 120px;
+    margin-top:30px;
+    width:100px;
+    height:40px;
+    border:1px solid #7C3434;
+    background-color: #7C3434;
+    border-radius: 20px;
+    font-size: 20px;
+    color:#FFF2CE;
+}
+.addStep:hover{
+    color:#FFF2CE;
+    background-color: #976146;
+    border: #976146;
+}
+
+
+

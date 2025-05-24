@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>레시피 목록</title>
+</head>
+<body>
+    <h1>작성된 레시피 제목들</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <a href="{%url 'recipe:detail' recipe.id%}"><li>{{ recipe.title }}</li></a>
+        {% empty %}
+            <li>레시피가 없습니다.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

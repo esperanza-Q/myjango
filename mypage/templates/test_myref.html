@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 목록</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        .ingredient-list {
+            list-style: none;
+            padding: 0;
+            display:flex;
+            flex-wrap: wrap;
+        }
+        .ingredient-item {
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            width:70px;
+            height:70px;
+            margin:10px;
+            align-items: center;     
+            justify-content: center; 
+            text-align: center;
+        }
+        .ingredient-item a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="{%url 'mypage:mypage'%}"><h2>My Page</h2></a>
+
+    <a href="#"><div style = "width : 400px; height:200px; border:1px solid black;">알레르기</div></a>
+    <div style = "width : 1000px; height:500px;display:flex;">
+        <div style = "width : 400px; height:500px; border:1px solid black;">
+            <ul class="ingredient-list">
+            {% for ingredient in ingredients %}
+                <a href="{%url 'mypage:ing_detail' ing_id=ingredient.id %}"><li class="ingredient-item">
+                    <img src="{% static ingredient.icon %}" alt="아이콘" style="width:50px;height:50px;">
+                </li></a>
+            {% empty %}
+                <li>재료가 없습니다.</li>
+            {% endfor %}
+                <a href="{%url 'mypage:ing_add'%}"><li style="text-align:center; content-justify:center;" class="ingredient-item">추가하기</li></a>
+            </ul>
+        </div>
+        <div style = "width : 400px; height:500px; border:1px solid black; ">
+            <a href="{%url 'mypage:scrap'%}"><div style = "width : 400px; height:250px; border:1px solid black; align-content:center;"><h2 style="text-align:center;">스크랩</h2></div></a>
+            <a href="#"><div style = "width : 400px; height:250px; border:1px solid black;">좋아요</div></a>
+        </div>
+    </div>
+
+</body>
+</html>

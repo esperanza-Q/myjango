@@ -1,0 +1,121 @@
+{%load static%}
+
+<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        .scrap-list {
+            list-style: none;
+            padding: 0;
+            display:flex;
+            flex-wrap: wrap;
+            
+        }
+        .scrap-item {
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            width:80px;
+            height:80px;
+            margin-right:31px;
+            margin-left:31px;
+            align-items: center;     
+            justify-content: center; 
+            text-align: center;
+        }
+        .scrap-item a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .container {
+            width: 300px;
+            height: 500px;
+            margin-left: 50px;
+            padding: 20px;
+            border: 3px solid #8B6F47;
+            border-radius: 10px;
+        }
+
+        ul.scrapRecipe-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #5A2A0C;
+        }
+
+        ul.scrapRecipe-list li {
+            margin: 10px 0;
+        }
+
+        .done-button {
+            display: block;
+            width: 80px;
+            margin: 30px auto 0;
+            padding: 8px 16px;
+            background-color: #7A3E2F;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .scroll-box {
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+    
+    </style>
+
+<a href="{%url 'mypage:mypage'%}"><h2>My Page</h2></a>
+<div style = "width : 2000px; height:auto; display:flex;">
+    {% comment %} 아래 스크랩 목록 {% endcomment %}
+    <div style = "width : 600px; height : 500px; border:1px solid black; overflow-y: scroll; overflow-x: hidden; margin-right:50px;">
+        <h2 style="align-items: center; justify-content: center; text-align: center;">스크랩 목록</h2>
+        {% comment %} <div style="text-align:center; content-justify:center;">
+            <a href="{%url 'mypage:scrap_add'%}"><span>추가하기</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{%url 'mypage:scrap_add'%}"><span>삭제하기</span></a>
+        </div> {% endcomment %}
+        <ul class="scrap-list">
+            {% for scrap in scraps %}
+                <a href="{%url 'mypage:scrap_detail' scrap_id=scrap.id %}">
+                <li class="scrap-item">
+                    <label>
+                        <img src="{% static 'img/바구니.png' %}" alt="바구니" style="width:50px;height:50px;">
+                        <p style="width:70px;height:20px;">{{scrap.name}}</p>
+                    </label>
+                </li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% comment %} 여기 아래 해당 스크랩에 포함된 모든 게시글 제목 {% endcomment %}
+    <div class="container">
+        <div style = "width : 300px; align-content:center;"><h2 style="text-align:center;">{{ selected_scrap.name }}</h2></div>
+
+        <div class="scroll-box">
+            <ul class="scrapRecipe-list">
+                {% for scrapRecipe in scrapRecipes %}
+                    <a href="{%url 'recipe:detail' recipe_id=scrapRecipe.recipe.id %}"><li>{{ scrapRecipe.recipe.title }}</li></a>
+                {% empty %}
+                    <li>등록된 글이 없습니다.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a class="done-button" href="{% url 'mypage:scrap' %}">완료</a>
+    </div>
+</div>
