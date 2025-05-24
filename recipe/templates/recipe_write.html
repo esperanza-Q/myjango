@@ -1,6 +1,6 @@
- 
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="{% static 'css/recipe_write.css' %}">
 
@@ -691,37 +691,40 @@
                             <input name="summary" type="text" class="recipeDescription" placeholder="(간단한 레시피 설명)">
                         </div>
                     </div>
-                        <button type="submit">작성 완료</button>
 
-                </form>
 
-                {% comment %} 추후 구현 {% endcomment %}
-                <div class ="recipeHorizontalDiv">
-                    <div class="recipeLikeDiv">
-                        <div class="likeEmoji"> &#128512;</div>
-                        <div class="likeNum"> <div>000 명이 좋아해요!</div></div>
-                    </div>
-                    <div class="tape"></div>
-                    <div class="recipeIngredientCard">
-                        <div class="recipeIngredients">
-                            <h3>재료</h3>
-                            <ul>
-                                <li>계란 2개 <button class="listButton">삭제</button></li> 
-                                <li>당근 반개 <button class="listButton">삭제</button></li>
-                                <li>계란 2개 <button class="listButton">삭제</button></li>
-                            </ul>
+                    <div class ="recipeHorizontalDiv">
 
-                            <div class="ingredient-form">
-                                <input type="text" id="ingredient-name" placeholder="재료 이름">
-                                <input type="number" id="ingredient-amount" placeholder="양" min="1">
-                                <input type="text" id="ingredient-unit" placeholder="단위">
-                                <button class="addIngredient">추가</button>
+                        <div class="tape"></div>
+
+                        <div class="recipeIngredientCard">
+                            <div class="recipeIngredients">
+
+                                <h3>재료</h3>
+                                    <!-- 재료 목록 보여주는 곳 -->
+                                    <ul id="ingredients-ul" style="list-style: none; padding-left: 0;"></ul>
+
+                                    <!-- 재료 정보를 숨길 영역 -->
+                                    <div id="ingredients-hidden-inputs"></div>
+                                    
+                                <div class="ingredient-form">
+                                    <input name ="name" type="text" id="ingredient-name" placeholder="재료 이름">
+                                    <input name="amount" type="text" id="ingredient-amount" placeholder="양" min="1">
+                                        <select name="unit" id="ingredient-unit">
+                                            <option value="g">g</option>
+                                            <option value="kg">kg</option>
+                                            <option value="ml">ml</option>
+                                            <option value="L">L</option>
+                                            <option value="개">개</option>
+                                            <option value="마리">마리</option>
+                                        </select>
+                                    <button type="button" class="addIngredient">추가</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {% comment %} 추후 구현 {% endcomment %}
-
+                    <button type="submit">작성 완료</button>
+                </form>
 
             </div>
 
@@ -770,5 +773,6 @@
             
         </main>
     </div>
+    <script src="{% static 'js/recipe_ingredient.js' %}"></script>
 </body>
 </html>

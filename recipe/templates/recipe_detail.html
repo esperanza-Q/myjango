@@ -519,20 +519,11 @@
                     <div class="recipeIngredientCard">
                         <div class="recipeIngredients">
                             <h3>재료</h3>
-                            <ul>
-                                <li>계란 2개</li>
-                                <li>당근 반개</li>
-                                <li>계란 2개</li>
-                                <li>당근 반개</li>
-                                <li>계란 2개</li>
-                                <li>당근 반개</li>
-                                <li>계란 2개</li>
-                                <li>당근 반개</li>
-                                <li>계란 2개</li>
-                                <li>당근 반개</li>
-                                <li>계란 2개</li>
-                                <li>당근 2개</li>
-                            </ul>
+                                <ul>
+                                    {% for ing in recipe_ing %}
+                                    <li>{{ ing.name }} - {{ ing.amount }} {{ ing.unit }}</li>
+                                    {% endfor %}
+                                </ul>
                         </div>
                     </div>
                 </div>
